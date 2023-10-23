@@ -54,7 +54,7 @@ public class CustomerController {
         return assembler.toModel(customer);
     }
 
-    @DeleteMapping("/customer/{id}")
+    @DeleteMapping("/customers/{id}")
     public ResponseEntity<?> deleteCustomer(@PathVariable Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
