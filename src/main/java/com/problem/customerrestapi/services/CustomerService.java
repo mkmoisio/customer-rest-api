@@ -21,7 +21,6 @@ public class CustomerService {
 
     private final WebClient webClient;
     private final ModelMapper modelMapper = new ModelMapper();
-    private final PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
 
     public CustomerService(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl("https://www.kauppalehti.fi/company-api/basic-info").build();
@@ -62,7 +61,7 @@ public class CustomerService {
         try {
             Phonenumber.PhoneNumber number = new Phonenumber.PhoneNumber();
             PhoneNumberUtil.getInstance().parse(phoneNumber, "FI", number);
-            return phoneNumberUtil.format(number, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
+            return PhoneNumberUtil.getInstance().format(number, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
         } catch (NumberParseException ex) {
             // Number was garbage, dismiss
             return null;
