@@ -6,7 +6,7 @@ public class KLApiResponse {
 
     @Override
     public String toString() {
-        return "JsonResponse{" +
+        return "KLApiResponse{" +
                 "phone=" + phone +
                 ", streetAddress=" + streetAddress +
                 '}';
